@@ -18,20 +18,11 @@ public class DataProviderExternelFileTest {
 
     @Test
     @UseDataProvider(value = "loadFromExternalFile", location = LoadFromExternalFile.class)
-    @ExternalFile(format = ExternalFile.Format.JSON, value = "persons.json", clazz=Person.class, isArray=true)
+    @ExternalFile(format = ExternalFile.Format.JSON, value = "com/oocl/dataprovider/persons.json", clazz=Person.class, isArray=true)
     public void should_return_array_when_is_array_is_true(List<Person> person) {
         // Expect:
         assertEquals(person.get(0).getName(), "zhangsan");
         assertEquals(person.get(0).getAge(), 18);
-    }
-
-    @Test
-    @UseDataProvider(value = "loadFromExternalFile", location = LoadFromExternalFile.class)
-    @ExternalFile(format = ExternalFile.Format.JSON, value = "person.json", clazz=Person.class)
-    public void should_return_object_when_is_array_is_false(Person person) {
-        // Expect:
-        assertEquals(person.getName(), "zhangsan");
-        assertEquals(person.getAge(), 18);
     }
 
 

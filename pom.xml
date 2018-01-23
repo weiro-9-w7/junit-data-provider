@@ -7,10 +7,22 @@
     <groupId>com.oocl</groupId>
     <artifactId>junit-data-provider-sample</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.tngtech.junit.dataprovider</groupId>
             <artifactId>junit4-dataprovider</artifactId>
+            <version>2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.junit.dataprovider</groupId>
+            <artifactId>junit-dataprovider-core</artifactId>
             <version>2.0</version>
             <scope>test</scope>
         </dependency>
@@ -21,9 +33,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.alibaba</groupId>
+            <groupId>thirdparty_lib</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.44</version>
+            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
