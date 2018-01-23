@@ -17,13 +17,14 @@ public class LoadFromExternalFile {
 
     @DataProvider
     public static Object[][] loadFromExternalFile(FrameworkMethod testMethod) throws IOException {
-        /*String testDataFile = testMethod.getAnnotation(ExternalFile.class).value();
-        // Load the data from the external file here ...
-        return new Object[][] { { testDataFile } };*/
-        String testDataFile = testMethod.getAnnotation(ExternalFile.class).value();
+        ExternalFile externalFile = testMethod.getAnnotation(ExternalFile.class);
+        String testDataFile = externalFile.value();
         File file = new File(LoadFromExternalFile.class.getResource("/").getPath() + testDataFile);
         String content = FileUtils.readFileToString(file, "utf8");
-        List<Person> persons = JSON.parseArray(content, Person.class);
-        return new Object[][]{{persons}};
+        if(externalFile.isArray()){
+            return new Object[][]{{JSON.parseArray(content, externalFile.clazz())}};
+        }else{
+            return new Object[][]{{JSON.parseObject(content, externalFile.clazz())}};
+        }
     }
 }

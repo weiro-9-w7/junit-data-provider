@@ -20,4 +20,6 @@ public @interface ExternalFile {
 
     Format format();
     String value();
+    Class clazz();
+    boolean isArray() default false;
 }
