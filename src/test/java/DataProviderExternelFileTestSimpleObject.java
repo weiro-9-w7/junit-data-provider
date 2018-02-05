@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(DataProviderRunner.class)
 public class DataProviderExternelFileTestSimpleObject {
+
   @Test
   @UseDataProvider(value = "loadFromExternalFile", location = ExternalFileLoader.class)
   @ExternalFile(format = ExternalFile.Format.JSON, value = "com/oocl/dataprovider/person.json", clazz = Person.class)

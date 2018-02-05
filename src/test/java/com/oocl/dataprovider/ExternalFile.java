@@ -11,15 +11,19 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface ExternalFile {
-    public enum Format {
-        CSV,
-        XML,
-        JSON,
-        XLS;
-    }
 
-    Format format();
-    String value();
-    Class clazz();
-    boolean isArray() default false;
+  Format format();
+
+  String value();
+
+  Class clazz();
+
+  boolean isArray() default false;
+
+  public enum Format {
+    CSV,
+    XML,
+    JSON,
+    XLS;
+  }
 }
